@@ -1,1 +1,62 @@
-<p>user-list works!</p>
+<div class="userListWrap">
+  <div class="internalWrap">
+       <div class="row">
+           <div class="col-md-12">
+               <h1>User List </h1>
+           </div>
+       </div>
+
+       <div class="row mt-4">
+           <div class="col-md-12">
+               <div class="text-right">
+                   <a [routerLink]="['/user/add-user']" ><i class="fa-solid fa-plus"></i>New
+                       User</a>
+               </div>
+           </div>
+       </div>
+
+
+       <div class="row mt-3">
+           <div class="col-md-12">
+               <div class="tableStyle tableStyleScroll table-responsive">
+                   <table class="table">
+                       <thead>
+                           <tr>
+                               <th>User Id#</th>
+                               <th>Name</th>
+                               <th>Email</th>
+                               <th>Phone Number</th>
+                               <th>Address</th>
+                               <th>Action</th>
+
+                           </tr>
+                       </thead>
+                       <tbody>
+                          <tr *ngFor="let user of usersList">
+                           <td>User_{{user.id}}</td>
+                           <td><span *ngIf="user?.name">{{user.name}}</span><span *ngIf="user?.firstName"></span>{{user.firstName}} {{user.lastName}}</td>
+                           <td>{{user.email}}</td>
+                           <td>{{user.phone}}</td>
+                           <td><span *ngIf="!user?.address?.street">{{user.address}}</span><span *ngIf="user.address?.street"> {{user.address?.street}}</span></td>
+                           <td class="whiteSpace">
+                            <ul class="actionIcon">
+
+                                <li [routerLink]="['/user/add-user']" [queryParams]="{ id: user.id }"><span><a><i class="bi bi-pencil" title="Edit"></i></a></span></li>
+                                <li><a (click)="onDelete(user?.id)"><i class="bi bi-trash" title="Delete"></i></a></li>
+                                <li>
+
+                                </li>
+                            </ul>
+                        </td>
+                          </tr>
+                       </tbody>
+ </table>
+               </div>
+           </div>
+
+
+       </div>
+
+   </div>
+
+

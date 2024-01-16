@@ -1,1 +1,100 @@
-<p>user-upsert works!</p>
+<div class="internalWrap">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <h2> Add User Form</h2>
+        <h4 *ngIf="showAlreadyExistUser" style="color: red;"> User already exists</h4>
+        <form [formGroup]="userForm">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>First Name :</label>
+                <input formControlName="firstName" type="text" class="form-control" placeholder="Enter First Name"
+                  [ngClass]="{'is-invalid':submittedUserForm && userFormControl.firstName.errors}">
+                <div *ngIf="userFormControl.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControl.firstName.errors.required">First Name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Last Name :</label>
+                <input formControlName="lastName" type="text" class="form-control" placeholder="Enter Last Name"
+                  [ngClass]="{'is-invalid':submittedUserForm && userFormControl.firstName.errors}">
+                <div *ngIf="userFormControl.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControl.lastName.errors.required">Last Name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Phone Number :</label>
+                <!-- Used NumberOnly Custom Directive to accept only number -->
+                <input class="form-control" type="text" formControlName="phone" NumberOnly
+                  [ngClass]="{ 'is-invalid': submittedUserForm && userFormControl.phone.errors}"
+                  placeholder="Enter Phone Number" [maxLength]="10">
+                <div *ngIf="userFormControl.phone.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControl.phone.errors.required">Phone Number is required.
+                  </div>
+                  <div *ngIf="userFormControl.phone.errors.maxLength">Enter Valid Phone Number.
+                  </div>
+                  <div *ngIf="userFormControl.phone.errors.minlength"> Phone Number Should Min 10 digit.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Email :</label>
+                <input formControlName="email" type="text" class="form-control" placeholder="Enter Email"
+                  [ngClass]="{'is-invalid':submittedUserForm && userFormControl.email.errors}">
+                <div *ngIf="userFormControl.email.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControl.email.errors.required">Email is required.
+                  </div>
+                  <div *ngIf="userFormControl.email.errors.email">Please enter valid email
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Address :</label>
+
+                <input formControlName="address" type="text" class="form-control" placeholder="Enter Address"
+                  type="text" [ngClass]="{'is-invalid':submittedUserForm && userFormControl.address.errors}">
+
+                <div *ngIf="userFormControl.address.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControl.address.errors.required">Address is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row mt-3">
+            <div class="col-md-12 text-right">
+              <button (click)="submitUserForm()" type="button" class="btn btn-primary"> <i
+                  class="fa-solid fa-check mr-2"></i> Save</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

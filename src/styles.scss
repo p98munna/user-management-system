@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+// Add Form page
+.internalWrap {
+  padding: 27px 15px;
+}
+
+.whiteSpace {
+  white-space: nowrap;
+}
+/* Action class*/
+
+.actionIcon {
+  padding: 0;
+  text-align: left;
+}
+
+.actionIconNew .customCheckboxNew {
+  margin-left: 8px;
+}
+
+.actionIcon li {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.actionIcon li:first-child {
+  margin-left: 0;
+}
+
+.actionIconNew li {
+  margin-left: 0;
+}
+
+.actionIcon li a {
+  cursor: pointer;
+}
+
+.actionIcon li span {
+  cursor: pointer;
+  color: #7c7c7d;
+  font-size: 15px;
+}
+
+.userListWrap {
+  background: #F5F5F5;
+}
+
+.userListWrap .outerRow {
+  margin: 0;
+}
+.text-right{
+  margin-left: 88%;
+}
